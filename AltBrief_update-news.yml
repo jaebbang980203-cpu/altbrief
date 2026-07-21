@@ -1,0 +1,90 @@
+name: Update and Deploy AltBrief
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */3 * * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Repair file paths and cache rule
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          collector = Path("update_news.py")
+          text = collector.read_text(encoding="utf-8")
+          text = text.replace(
+              "ROOT = Path(__file__).resolve().parents[1]",
+              "ROOT = Path(__file__).resolve().parent",
+          )
+          collector.write_text(text, encoding="utf-8")
+
+          worker = Path("sw.js")
+          text = worker.read_text(encoding="utf-8")
+          text = text.replace(
+              'const CACHE = "altbrief-github-v1";',
+              'const CACHE = "altbrief-github-v2";',
+          )
+          text = text.replace(
+              'url.pathname.endsWith("/data/news.json")',
+              'url.pathname.endsWith("/news.json")',
+          )
+          worker.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Collect public RSS news
+        run: python update_news.py
+
+      - name: Save latest data to repository
+        shell: bash
+        run: |
+          git config user.name "altbrief-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add news.json update_news.py sw.js
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update AltBrief news"
+            git push
+          fi
+
+      - name: Prepare website files
+        shell: bash
+        run: |
+          mkdir -p dist
+          cp index.html app.js styles.css manifest.json sw.js news.json icon-192.png icon-512.png dist/
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload website artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
