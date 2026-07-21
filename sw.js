@@ -1,5 +1,5 @@
 const CACHE = "altbrief-github-v1";
-const OFFLINE_FILES = ["./", "./styles.css", "./app.js", "./manifest.json", "./data/news.json", "./icons/icon-192.png", "./icons/icon-512.png"];
+const OFFLINE_FILES = ["./", "./styles.css", "./app.js", "./manifest.json", "./news.json", "./icon-192.png", "./icon-512.png"];
 const resolve = (path) => new URL(path, self.registration.scope).href;
 
 self.addEventListener("install", (event) => {
@@ -17,7 +17,7 @@ self.addEventListener("fetch", (event) => {
   if (isNews) {
     event.respondWith(fetch(event.request).then((response) => {
       const copy = response.clone(); caches.open(CACHE).then((cache) => cache.put(event.request, copy)); return response;
-    }).catch(() => caches.match(event.request).then((cached) => cached || caches.match(resolve("./data/news.json")))));
+    }).catch(() => caches.match(event.request).then((cached) => cached || caches.match(resolve("./news.json")))));
     return;
   }
   event.respondWith(caches.match(event.request).then((cached) => cached || fetch(event.request).then((response) => {

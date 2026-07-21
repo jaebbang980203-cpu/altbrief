@@ -15,7 +15,7 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "site" / "data" / "news.json"
+OUTPUT = ROOT / "news.json"
 MAX_ARTICLES = 140
 CUTOFF_DAYS = 45
 

@@ -37,7 +37,7 @@ async function fetchNews(force = false) {
   els.refresh.disabled = true;
   els.refresh.innerHTML = force ? "<span>↻</span> 확인 중…" : "<span>↻</span> 불러오는 중…";
   try {
-    const response = await fetch(`./data/news.json${force ? `?t=${Date.now()}` : ""}`, { cache: force ? "no-store" : "default" });
+    const response = await fetch(`./news.json${force ? `?t=${Date.now()}` : ""}`, { cache: force ? "no-store" : "default" });
     if (!response.ok) throw new Error(`데이터 응답 ${response.status}`);
     const data = await response.json();
     state.articles = data.articles?.length ? data.articles : OFFLINE_SAMPLE;
