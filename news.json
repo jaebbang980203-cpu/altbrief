@@ -1,0 +1,22 @@
+{
+  "articles": [
+    {
+      "id": "welcome-1",
+      "title": "AltBrief 자동 뉴스 수집을 준비하고 있습니다",
+      "source": "AltBrief",
+      "published_at": "2026-07-21T00:00:00+00:00",
+      "category": "Private Credit",
+      "region": "Global",
+      "event_type": "Market Update",
+      "summary": "GitHub 저장소 업로드와 Pages 설정 후 자동 수집 작업이 실행되면 실제 공개 RSS 기사로 교체됩니다.",
+      "implication": "첫 실행 후 Actions 화면에서 수집 성공 여부와 마지막 실행 시간을 확인하세요.",
+      "importance": 80,
+      "url": "#"
+    }
+  ],
+  "updated_at": "2026-07-21T00:00:00+00:00",
+  "live": false,
+  "mode": "initial-sample",
+  "source_count": 0,
+  "errors": []
+}

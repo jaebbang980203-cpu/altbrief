@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#071b2f" />
+  <meta name="description" content="대체투자 실무자를 위한 무료 자동 뉴스 인텔리전스 앱" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <link rel="icon" href="./icons/icon-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>AltBrief | Alternative Intelligence</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="./" aria-label="AltBrief 홈">
+        <span class="brand-mark">A</span>
+        <span><strong>AltBrief</strong><small>Alternative Intelligence</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="주요 메뉴">
+        <button class="nav-item active" data-view="feed"><span>◫</span> 뉴스 피드</button>
+        <button class="nav-item" data-view="briefing"><span>✦</span> 데일리 브리핑</button>
+        <button class="nav-item" data-view="saved"><span>♡</span> 저장한 뉴스</button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="status-card">
+          <span class="status-dot"></span>
+          <div><strong id="sourceStatus">연결 확인 중</strong><small id="updatedSide">업데이트 확인 중</small></div>
+        </div>
+        <button id="shareButtonSide" class="settings-button">↗ 부서원에게 공유</button>
+        <button id="openSettings" class="settings-button">⚙ 수집 및 설치 안내</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="mobile-header">
+        <a class="brand compact" href="./"><span class="brand-mark">A</span><strong>AltBrief</strong></a>
+        <div class="mobile-actions">
+          <button id="shareButtonMobile" class="icon-button" aria-label="링크 공유">↗</button>
+          <button id="installButtonMobile" class="icon-button hidden" aria-label="앱 설치">↓</button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <span class="eyebrow">ALTERNATIVE INVESTMENTS</span>
+          <h1 id="pageTitle">오늘의 시장을<br><em>빠르게 읽으세요.</em></h1>
+          <p id="pageDescription">대체투자 핵심 뉴스를 3시간마다 자동 수집해 자산군별로 정리합니다.</p>
+          <div class="automation-badge"><span></span> 무료 자동 수집 · 3시간 주기</div>
+        </div>
+        <div class="hero-actions">
+          <button id="shareButton" class="secondary-button">링크 공유</button>
+          <button id="installButton" class="secondary-button hidden">앱 설치</button>
+          <button id="refreshButton" class="primary-button"><span>↻</span> 최신 데이터 확인</button>
+        </div>
+      </section>
+
+      <section id="dashboardSection" class="dashboard-strip">
+        <article><span>최근 수집</span><strong id="todayCount">0</strong><small>articles</small></article>
+        <article><span>핵심 뉴스</span><strong id="priorityCount">0</strong><small>score 85+</small></article>
+        <article><span>수집 자산군</span><strong id="categoryCount">0</strong><small>categories</small></article>
+        <article><span>마지막 업데이트</span><strong id="updatedTime">--:--</strong><small id="liveBadge">connecting</small></article>
+      </section>
+
+      <section id="controlsSection" class="controls-panel">
+        <div class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="GP, LP, 전략, 지역 또는 키워드 검색" autocomplete="off" />
+          <kbd>⌘ K</kbd>
+        </div>
+        <div id="categoryChips" class="chips" aria-label="자산군 필터"></div>
+      </section>
+
+      <section id="contentSection" class="content-grid">
+        <div class="feed-column">
+          <div class="section-heading">
+            <div><span id="resultLabel">LATEST INTELLIGENCE</span><h2 id="resultTitle">최신 뉴스</h2></div>
+            <select id="sortSelect" aria-label="정렬 기준">
+              <option value="latest">최신순</option>
+              <option value="importance">중요도순</option>
+            </select>
+          </div>
+          <div id="newsList" class="news-list" aria-live="polite"></div>
+          <div id="emptyState" class="empty-state hidden">
+            <span>⌕</span><h3>검색 결과가 없습니다</h3><p>다른 키워드나 자산군을 선택해 보세요.</p>
+          </div>
+        </div>
+
+        <aside class="insight-column">
+          <article class="brief-card">
+            <div class="brief-header"><span>✦</span><small>RULE-BASED BRIEFING</small></div>
+            <h3>오늘의 핵심 이슈</h3>
+            <div id="briefList" class="brief-list"></div>
+            <button id="openBriefing" class="text-button">전체 브리핑 보기 →</button>
+          </article>
+          <article class="watch-card">
+            <span class="card-label">MARKET WATCH</span>
+            <h3>이번 주 관찰 포인트</h3>
+            <ul id="watchList">
+              <li><span>01</span> Private Credit 펀드레이징</li>
+              <li><span>02</span> 국내 기관 출자 공고</li>
+              <li><span>03</span> ABF·SRT 신규 전략</li>
+            </ul>
+          </article>
+          <article class="source-card">
+            <span class="card-label">DATA POLICY</span>
+            <p>공개 RSS의 제목·출처·링크만 수집하며 기사 전문은 저장하지 않습니다.</p>
+          </article>
+        </aside>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="모바일 메뉴">
+      <button class="bottom-item active" data-view="feed"><span>◫</span><small>뉴스</small></button>
+      <button class="bottom-item" data-view="briefing"><span>✦</span><small>브리핑</small></button>
+      <button class="bottom-item" data-view="saved"><span>♡</span><small>저장</small></button>
+      <button class="bottom-item" id="mobileSettings"><span>⚙</span><small>설정</small></button>
+    </nav>
+  </div>
+
+  <dialog id="settingsDialog">
+    <form method="dialog" class="dialog-card">
+      <button class="dialog-close" value="cancel" aria-label="닫기">×</button>
+      <span class="eyebrow">APP & COLLECTION</span>
+      <h2>수집 및 설치 안내</h2>
+      <p>GitHub 서버가 공개 RSS를 3시간마다 수집합니다. 회사 PC에서 프로그램이나 터미널을 실행할 필요가 없습니다.</p>
+      <div class="setting-row"><div><strong>자동 업데이트</strong><small>GitHub Actions 예약 실행</small></div><span class="pill">3시간</span></div>
+      <div class="setting-row"><div><strong>수집 범위</strong><small>PE · PD · Infra · RE · ABF · SRT 외</small></div><span class="pill">10개+</span></div>
+      <div class="setting-row"><div><strong>뉴스 저장</strong><small>공용 뉴스는 GitHub Pages, 즐겨찾기는 각 기기에 저장</small></div><span class="pill">무료</span></div>
+      <div class="setting-row"><div><strong>휴대폰 설치</strong><small>브라우저 메뉴에서 홈 화면에 추가</small></div><span class="pill">PWA</span></div>
+      <button id="dialogRefresh" value="cancel" class="primary-button wide">최신 데이터 다시 확인</button>
+      <button id="dialogShare" value="cancel" class="secondary-button wide dialog-share">부서원 공유 링크 복사</button>
+      <small class="legal-note">공개 저장소 방식이므로 회사 내부자료나 개인정보를 업로드하지 마세요. 자동 분류는 규칙 기반 참고 정보이며 원문 확인이 필요합니다.</small>
+    </form>
+  </dialog>
+
+  <template id="newsCardTemplate">
+    <article class="news-card">
+      <div class="card-topline">
+        <div class="meta-tags"><span class="category-tag"></span><span class="region-tag"></span><span class="event-tag"></span></div>
+        <button class="save-button" aria-label="뉴스 저장">♡</button>
+      </div>
+      <h3 class="news-title"></h3>
+      <p class="news-summary"></p>
+      <div class="implication-box"><strong>LP 관점</strong><span class="news-implication"></span></div>
+      <div class="card-footer">
+        <div><strong class="news-source"></strong><span class="news-date"></span></div>
+        <div class="score"><span></span><strong class="importance-score"></strong></div>
+        <a class="article-link" target="_blank" rel="noopener noreferrer">원문 보기 ↗</a>
+      </div>
+    </article>
+  </template>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
