@@ -1,17 +1,24 @@
-AltBrief AI 완성형 교체 방법
+AltBrief AI 수정판 업로드 방법
 
-1. ZIP 압축을 풉니다.
-2. GitHub 저장소 altbrief의 최상위 폴더에서 기존 파일을 정리합니다.
-3. 아래 5개 파일을 업로드합니다.
-   index.html
-   manifest.webmanifest
-   sw.js
-   icon-192.png
-   icon-512.png
-4. 동일한 이름의 파일은 Replace/덮어쓰기를 선택합니다.
-5. Commit changes를 누릅니다.
-6. 1~3분 후 아래 주소로 접속합니다.
-   https://jaebbang980203-cpu.github.io/altbrief/
+이번 수정판은 기존 저장소의 아래 파일을 덮어씁니다.
+- index.html
+- sw.js
+- manifest.webmanifest
+- icon-192.png
+- icon-512.png
 
-기존 live.html, live-v2.html, app.js, news.json은 삭제해도 됩니다.
-브라우저에서 이전 화면이 보이면 새로고침을 길게 눌러 캐시를 지우거나, 주소 끝에 ?v=final 을 붙여 접속하세요.
+수정 사항
+1. Fundraising / Final Close / LP Commitment 탭을 이벤트 그룹 기준으로 재구성
+2. 검색 대상에 기사 본문, GP, Fund, 전략, 지역, 이벤트, 추천 LP, 3-Line Intelligence 포함
+3. 한글·영문 동의어 검색 지원
+4. 3-Line Intelligence를 이벤트·전략별 문장 템플릿으로 강화
+5. Recommended Action을 이벤트별 3단계 실행안으로 변경
+6. 기사 제목 뒤 언론사명을 제거해 GP 및 Fund 추출 정확도 개선
+7. 30일 검색 범위로 확장
+
+업로드 후:
+https://jaebbang980203-cpu.github.io/altbrief/?v=fixed4
+
+기존 화면이 보이면:
+- 삼성/Chrome: 설정 > 개인정보 보호 > 인터넷 사용 기록 삭제 > 캐시된 이미지 및 파일
+- iPhone/Safari: 설정 > Safari > 고급 > 웹사이트 데이터에서 github.io 관련 데이터 삭제

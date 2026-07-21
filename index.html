@@ -7,7 +7,6 @@
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="apple-touch-icon" href="icon-192.png"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <title>AltBrief AI</title>
 <style>
 :root{--navy:#07132f;--navy2:#10214c;--blue:#2f64ff;--bg:#eef2f7;--card:#fff;--text:#16213a;--muted:#6d778d;--line:#dfe5ee;--green:#0b7e69;--amber:#a56b00;--red:#b42318}
@@ -19,34 +18,25 @@ header{position:sticky;top:0;z-index:20;background:rgba(7,19,47,.98);color:#fff;
 .brand b{font-size:18px;display:block}.brand small{color:#bfc9de}.head-right{margin-left:auto;display:flex;align-items:center;gap:8px}
 .live{font-size:12px;border:1px solid rgba(255,255,255,.18);padding:8px 10px;border-radius:999px}
 .refresh{border:0;border-radius:11px;background:#fff;color:var(--navy);padding:10px 13px;font-weight:850}
-main{padding:22px 0 70px}
-.dashboard{display:grid;grid-template-columns:1.6fr .75fr;gap:16px}
+main{padding:22px 0 70px}.dashboard{display:grid;grid-template-columns:1.6fr .75fr;gap:16px}
 .hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:24px;padding:26px;box-shadow:0 18px 40px rgba(7,19,47,.14)}
 .hero h1{margin:0 0 9px;font-size:33px;line-height:1.2}.hero p{margin:0;color:#c8d1e3;line-height:1.6}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
-.metric{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px}
-.metric b{display:block;font-size:25px}.metric span{font-size:11px;color:#cbd4e7}
-.radar{background:#fff;border:1px solid var(--line);border-radius:24px;padding:20px}
-.radar h3{margin:0 0 12px;font-size:15px}.radar-list{display:grid;gap:9px}.radar-item{display:flex;justify-content:space-between;align-items:center;background:#f6f8fc;border-radius:12px;padding:11px 12px;font-size:12px}
-.progress{display:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin:16px 0}.progress.show{display:block}
-.progress-line{height:7px;background:#e7ebf2;border-radius:999px;overflow:hidden;margin-top:8px}.progress-line i{display:block;height:100%;background:var(--blue);width:0;transition:.2s}
-.toolbar{display:grid;grid-template-columns:minmax(250px,1fr) 170px 150px auto;gap:9px;margin:17px 0 11px}
-.toolbar input,.toolbar select,.toolbar button{border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 13px}.toolbar button{font-weight:800}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}.metric{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px}.metric b{display:block;font-size:25px}.metric span{font-size:11px;color:#cbd4e7}
+.radar{background:#fff;border:1px solid var(--line);border-radius:24px;padding:20px}.radar h3{margin:0 0 12px;font-size:15px}.radar-list{display:grid;gap:9px}.radar-item{display:flex;justify-content:space-between;align-items:center;background:#f6f8fc;border-radius:12px;padding:11px 12px;font-size:12px}
+.progress{display:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin:16px 0}.progress.show{display:block}.progress-line{height:7px;background:#e7ebf2;border-radius:999px;overflow:hidden;margin-top:8px}.progress-line i{display:block;height:100%;background:var(--blue);width:0;transition:.2s}
+.toolbar{display:grid;grid-template-columns:minmax(250px,1fr) 170px 150px auto;gap:9px;margin:17px 0 11px}.toolbar input,.toolbar select,.toolbar button{border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 13px}.toolbar button{font-weight:800}
+.search-help{font-size:11px;color:var(--muted);margin:-4px 0 10px 3px}
 .tabs{display:flex;gap:8px;overflow:auto;padding:2px 0 13px}.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;white-space:nowrap;font-size:12px;font-weight:800}.tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
 .notice{display:none;margin-bottom:12px;padding:12px 14px;border-radius:13px;background:#fff5dc;border:1px solid #efd099;color:#7b5612}.notice.show{display:block}
-.content{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px}
-.opps,.feed{display:grid;gap:13px}
-.section-title{display:flex;align-items:center;justify-content:space-between;margin:4px 0 8px}.section-title h2{font-size:16px;margin:0}.section-title span{font-size:11px;color:var(--muted)}
-.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 5px 20px rgba(7,19,47,.04)}
-.card.read{opacity:.7}.top{display:flex;gap:12px}.main{min-width:0;flex:1}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px}.tag{font-size:10px;font-weight:850;padding:5px 8px;border-radius:999px;background:#edf1ff;color:#3148a2}.tag.ev{background:#e8f7f2;color:#0a735d}.tag.reg{background:#fff2dc;color:#9b6200}.tag.high{background:#fdeceb;color:#b02c22}
-.title{font-size:20px;line-height:1.38;margin:0 0 7px}.meta{font-size:11px;color:var(--muted)}
-.score{width:68px;min-width:68px;height:68px;border-radius:18px;background:#f4f6fa;border:1px solid var(--line);display:grid;place-items:center}.score b{font-size:22px}.score small{display:block;font-size:9px;text-align:center;color:var(--muted)}
-.details{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}.box{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fafbfe}.box h4{margin:0 0 8px;font-size:12px;color:#47516b}.box p,.box li{font-size:13px;line-height:1.55;margin:0}.box ul{margin:0;padding-left:18px;display:grid;gap:4px}
-.kv{display:grid;grid-template-columns:96px 1fr;gap:7px;font-size:12px}.kv b{color:#4a556e}
+.content{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px}.opps{display:grid;gap:13px}.section-title{display:flex;align-items:center;justify-content:space-between;margin:4px 0 8px}.section-title h2{font-size:16px;margin:0}.section-title span{font-size:11px;color:var(--muted)}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 5px 20px rgba(7,19,47,.04)}.card.read{opacity:.7}.top{display:flex;gap:12px}.main{min-width:0;flex:1}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px}.tag{font-size:10px;font-weight:850;padding:5px 8px;border-radius:999px;background:#edf1ff;color:#3148a2}.tag.ev{background:#e8f7f2;color:#0a735d}.tag.reg{background:#fff2dc;color:#9b6200}.tag.high{background:#fdeceb;color:#b02c22}
+.title{font-size:20px;line-height:1.38;margin:0 0 7px}.meta{font-size:11px;color:var(--muted)}.score{width:68px;min-width:68px;height:68px;border-radius:18px;background:#f4f6fa;border:1px solid var(--line);display:grid;place-items:center}.score b{font-size:22px}.score small{display:block;font-size:9px;text-align:center;color:var(--muted)}
+.details{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}.box{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fafbfe}.box h4{margin:0 0 8px;font-size:12px;color:#47516b}.box p,.box li{font-size:13px;line-height:1.57;margin:0}.box ul{margin:0;padding-left:18px;display:grid;gap:5px}.kv{display:grid;grid-template-columns:96px 1fr;gap:7px;font-size:12px}.kv b{color:#4a556e}
 .lp-list{display:grid;gap:7px}.lp-row{display:grid;grid-template-columns:78px 1fr 32px;gap:8px;align-items:center;font-size:11px}.meter{height:7px;background:#e8edf4;border-radius:999px;overflow:hidden}.meter i{display:block;height:100%;background:var(--blue)}
+.action-list{display:grid;gap:6px}.action-item{font-size:12px;line-height:1.5;padding:8px 9px;background:#fff;border:1px solid #e6eaf1;border-radius:9px}.action-item b{color:var(--navy)}
 .actions{display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px;margin-top:13px}.actions button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px;font-size:11px;font-weight:800}.actions .primary{background:var(--navy);color:#fff;border-color:var(--navy)}
-.sidebar{display:grid;gap:12px;align-self:start;position:sticky;top:82px}.side{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}.side h3{font-size:14px;margin:0 0 11px}.side-row{display:flex;justify-content:space-between;font-size:12px;padding:9px 0;border-bottom:1px solid #edf0f5}.side-row:last-child{border:0}
-.empty{padding:70px 20px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:18px;color:var(--muted)}
+.sidebar{display:grid;gap:12px;align-self:start;position:sticky;top:82px}.side{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}.side h3{font-size:14px;margin:0 0 11px}.side-row{display:flex;justify-content:space-between;font-size:12px;padding:9px 0;border-bottom:1px solid #edf0f5}.side-row:last-child{border:0}.empty{padding:70px 20px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:18px;color:var(--muted)}
 footer{text-align:center;font-size:11px;color:#8c95a8;padding:24px}
 @media(max-width:1000px){.dashboard,.content{grid-template-columns:1fr}.sidebar{position:static;grid-template-columns:1fr 1fr}.toolbar{grid-template-columns:1fr 1fr}.toolbar input{grid-column:1/-1}}
 @media(max-width:650px){.brand small,.live{display:none}.hero h1{font-size:25px}.metrics{grid-template-columns:repeat(2,1fr)}.details{grid-template-columns:1fr}.sidebar{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr 1fr}.card{padding:15px}.title{font-size:17px}.score{width:58px;min-width:58px;height:58px}}
@@ -56,36 +46,36 @@ footer{text-align:center;font-size:11px;color:#8c95a8;padding:24px}
 <header><div class="wrap head"><div class="logo">A</div><div class="brand"><b>AltBrief AI</b><small>Placement Agent Intelligence Platform</small></div><div class="head-right"><span class="live" id="status">준비 중</span><button class="refresh" id="refresh">↻ Refresh</button></div></div></header>
 <main class="wrap">
 <section class="dashboard">
- <div class="hero"><h1>오늘의 대체투자 기회를<br>LP 액션으로 연결합니다.</h1><p>뉴스에서 GP·Fund·전략·Closing 이벤트를 추출하고, 한국 LP 적합도와 권고 액션을 함께 제시합니다.</p>
- <div class="metrics"><div class="metric"><b id="mTotal">0</b><span>오늘 수집 뉴스</span></div><div class="metric"><b id="mHigh">0</b><span>High Priority</span></div><div class="metric"><b id="mFund">0</b><span>Fundraising</span></div><div class="metric"><b id="mSaved">0</b><span>Watchlist</span></div></div></div>
- <div class="radar"><h3>한국 LP Radar</h3><div class="radar-list" id="radar"></div></div>
+<div class="hero"><h1>오늘의 대체투자 기회를<br>LP 액션으로 연결합니다.</h1><p>뉴스에서 GP·Fund·전략·Closing 이벤트를 추출하고, 한국 LP 적합도와 실제 후속 업무를 정리합니다.</p>
+<div class="metrics"><div class="metric"><b id="mTotal">0</b><span>수집 뉴스</span></div><div class="metric"><b id="mHigh">0</b><span>High Priority</span></div><div class="metric"><b id="mFund">0</b><span>Fundraising Signals</span></div><div class="metric"><b id="mSaved">0</b><span>Watchlist</span></div></div></div>
+<div class="radar"><h3>한국 LP Radar</h3><div class="radar-list" id="radar"></div></div>
 </section>
 <div class="progress" id="progress"><b id="progressText">뉴스 수집 중</b><div class="progress-line"><i id="progressBar"></i></div></div>
-<div class="toolbar"><input id="search" placeholder="GP, Fund, 전략, 지역, 이벤트 검색"><select id="sort"><option value="importance">중요도순</option><option value="latest">최신순</option><option value="lpfit">LP 적합도순</option></select><select id="view"><option value="all">전체</option><option value="unread">미열람</option><option value="saved">Watchlist</option><option value="high">High Priority</option></select><button id="export">CSV</button></div>
+<div class="toolbar"><input id="search" placeholder="예: Blackstone / ABF / 유럽 / 최종클로징 / 국민연금"><select id="sort"><option value="importance">중요도순</option><option value="latest">최신순</option><option value="lpfit">LP 적합도순</option></select><select id="view"><option value="all">전체</option><option value="unread">미열람</option><option value="saved">Watchlist</option><option value="high">High Priority</option></select><button id="export">CSV</button></div>
+<div class="search-help">GP·Fund·전략·지역·이벤트·추천 LP·기사 본문 키워드를 함께 검색합니다.</div>
 <div class="tabs" id="tabs"></div><div class="notice" id="notice"></div>
-<div class="content">
- <section><div class="section-title"><h2>Today's Opportunities</h2><span id="countText"></span></div><div class="opps" id="feed"></div></section>
- <aside class="sidebar"><div class="side"><h3>Fundraising Signals</h3><div id="events"></div></div><div class="side"><h3>Strategy Mix</h3><div id="strategies"></div></div></aside>
-</div>
+<div class="content"><section><div class="section-title"><h2>Today's Opportunities</h2><span id="countText"></span></div><div class="opps" id="feed"></div></section>
+<aside class="sidebar"><div class="side"><h3>Event Signals</h3><div id="events"></div></div><div class="side"><h3>Strategy Mix</h3><div id="strategies"></div></div></aside></div>
 </main>
-<footer>기사 키워드에 기반한 규칙 분석이며, 기관별 공식 투자정책이나 투자 권유를 의미하지 않습니다.</footer>
+<footer>기사 제목·RSS 설명을 기반으로 한 업무 참고용 규칙 분석입니다. 주요 판단 전 원문 확인이 필요합니다.</footer>
 <script>
 const QUERIES=[
- '"private equity fund" final close OR fundraising when:14d',
- '"private credit fund" final close OR fundraising when:14d',
- '"infrastructure fund" final close OR launch when:14d',
- '"real estate fund" final close OR fundraising when:14d',
- '"GP stakes" OR secondaries fund transaction when:14d',
- '"asset backed finance" OR "significant risk transfer" OR CLO fund when:14d',
- '"pension fund" private markets commitment OR allocation when:14d',
- 'Korea institutional investor private markets when:14d'
+ '"private equity fund" final close OR first close OR fundraising when:30d',
+ '"private credit fund" final close OR first close OR fundraising when:30d',
+ '"infrastructure fund" final close OR first close OR launch when:30d',
+ '"real estate fund" final close OR fundraising when:30d',
+ '"GP stakes" OR secondaries fund transaction when:30d',
+ '"asset backed finance" OR "significant risk transfer" OR CLO fund when:30d',
+ '"pension fund" private markets commitment OR allocation when:30d',
+ 'Korea institutional investor private markets commitment when:30d'
 ];
 const S={all:[],tab:"전체",query:"",sort:"importance",view:"all"};
-const readSet=new Set(JSON.parse(localStorage.getItem("ab-final-read")||"[]"));
-const savedSet=new Set(JSON.parse(localStorage.getItem("ab-final-saved")||"[]"));
+const readSet=new Set(JSON.parse(localStorage.getItem("ab-fixed-read")||"[]"));
+const savedSet=new Set(JSON.parse(localStorage.getItem("ab-fixed-saved")||"[]"));
 const esc=s=>(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const strip=s=>{const d=document.createElement("div");d.innerHTML=s||"";return(d.textContent||"").replace(/\s+/g," ").trim()};
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const norm=s=>(s||"").toLowerCase().normalize("NFKD").replace(/[^\p{L}\p{N}]+/gu," ").trim();
 async function fetchT(url,ms=11000){const c=new AbortController(),t=setTimeout(()=>c.abort(),ms);try{return await fetch(url,{cache:"no-store",signal:c.signal,headers:{"Cache-Control":"no-cache"}})}finally{clearTimeout(t)}}
 function rssUrl(q){return`https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=en-US&gl=US&ceid=US:en&_=${Date.now()}`}
 async function getFeed(q){
@@ -99,27 +89,194 @@ async function getFeed(q){
   return[...doc.querySelectorAll("item")].map(x=>({title:x.querySelector("title")?.textContent||"",link:x.querySelector("link")?.textContent||"",pubDate:x.querySelector("pubDate")?.textContent||"",description:x.querySelector("description")?.textContent||"",source:x.querySelector("source")?.textContent||"Google News"}));
  }
 }
-function strategy(t){t=t.toLowerCase();if(/asset.?backed|\babf\b/.test(t))return"ABF";if(/significant risk transfer|\bsrt\b/.test(t))return"SRT";if(/\bclo\b/.test(t))return"CLO";if(/private credit|direct lending|private debt/.test(t))return"Private Credit";if(/secondar/.test(t))return"Secondaries";if(/gp stakes/.test(t))return"GP Stakes";if(/infrastructure|energy transition|renewable/.test(t))return"Infrastructure";if(/real estate|property|realty/.test(t))return"Real Estate";if(/private equity|buyout|growth equity/.test(t))return"Private Equity";return"Private Markets"}
-function eventType(t){t=t.toLowerCase();if(/final close|closed.*fund/.test(t))return"Final Close";if(/first close/.test(t))return"First Close";if(/raise[sd]?|fundrais|target.*billion|target.*million/.test(t))return"Fundraising";if(/launch|new fund|debut fund/.test(t))return"Fund Launch";if(/commitment|allocate|allocation/.test(t))return"LP Commitment";if(/acqui|transaction|buyout|deal/.test(t))return"Transaction";return"Market Update"}
-function region(t){t=t.toLowerCase();if(/korea|korean|seoul|nps|kic/.test(t))return"Korea";if(/asia|japan|china|india|singapore|hong kong/.test(t))return"Asia";if(/europe|uk|britain|germany|france|italy|spain/.test(t))return"Europe";if(/u\.s\.|united states|america|canada/.test(t))return"North America";return"Global"}
-function extractGP(title){let x=title.split(/[-–|:]/)[0].trim();return x.length<3?"미확인":x.slice(0,50)}
-function extractFund(title){const m=title.match(/([A-Z][A-Za-z0-9&' .-]{2,60}(?:Fund|Partners|Capital|Credit|Infrastructure|Real Estate)[A-Za-z0-9 IVX-]*)/);return m?m[1].trim():"기사 원문 확인"}
+function strategy(t){t=t.toLowerCase();
+ if(/asset.?backed finance|\babf\b/.test(t))return"ABF";if(/significant risk transfer|\bsrt\b/.test(t))return"SRT";if(/\bclo\b|collateralized loan obligation/.test(t))return"CLO";
+ if(/private credit|direct lending|private debt|lending fund/.test(t))return"Private Credit";if(/secondar/.test(t))return"Secondaries";if(/gp stakes|general partner stake/.test(t))return"GP Stakes";
+ if(/infrastructure|energy transition|renewable/.test(t))return"Infrastructure";if(/real estate|property|realty/.test(t))return"Real Estate";if(/private equity|buyout|growth equity/.test(t))return"Private Equity";return"Private Markets"}
+function eventType(t){t=t.toLowerCase();
+ if(/final clos(e|ing)|final close|closes? .* fund|closed .* fund/.test(t))return"Final Close";
+ if(/first clos(e|ing)|initial close/.test(t))return"First Close";
+ if(/lp commitment|commits? .* (fund|capital)|commitment|allocation|allocates?/.test(t))return"LP Commitment";
+ if(/fundrais|raises? .* (fund|capital)|seeks? .* billion|target.*(billion|million)|capital raise/.test(t))return"Fundraising";
+ if(/launch|new fund|debut fund|unveil/.test(t))return"Fund Launch";
+ if(/acqui|transaction|buyout|deal|investment in/.test(t))return"Transaction";return"Market Update"}
+function region(t){t=t.toLowerCase();if(/korea|korean|seoul|nps|kic|national pension service/.test(t))return"Korea";if(/asia|japan|china|india|singapore|hong kong|australia/.test(t))return"Asia";if(/europe|uk|britain|germany|france|italy|spain|nordic/.test(t))return"Europe";if(/u\.s\.|united states|america|canada|new york/.test(t))return"North America";return"Global"}
+function sourceClean(title,source){const parts=title.split(/\s+-\s+/);return parts.length>1?parts[parts.length-1]:source}
+function titleClean(title){const parts=title.split(/\s+-\s+/);return parts.length>1?parts.slice(0,-1).join(" - "):title}
+function extractGP(title){
+ const clean=titleClean(title);
+ const patterns=[/^([A-Z][A-Za-z0-9&.'\- ]{2,45}?)\s+(?:raises?|closes?|launches?|seeks?|targets?|announces?|backs?|acquires?)/i,/^([A-Z][A-Za-z0-9&.'\- ]{2,45}?):/];
+ for(const p of patterns){const m=clean.match(p);if(m)return m[1].trim()}
+ return clean.split(/[:|–—]/)[0].trim().slice(0,55)||"원문 확인"
+}
+function extractFund(title){
+ const clean=titleClean(title);
+ const m=clean.match(/([A-Z][A-Za-z0-9&'.,()\- ]{2,70}?(?:Fund|Partners|Capital|Credit|Infrastructure|Real Estate|Secondaries|Opportunities)\s*(?:[IVX0-9]+)?)/);
+ return m?m[1].trim():"원문에서 펀드명 확인"
+}
 function amount(t){const m=t.match(/(?:\$|USD\s*)[\d,.]+\s*(?:bn|billion|mn|million)/i);return m?m[0]:"미공개"}
-function score(full,ev,st,reg){let p=[],v=52;if(["Final Close","First Close","Fundraising","Fund Launch"].includes(ev)){v+=20;p.push("Fundraising event +20")}if(ev==="LP Commitment"){v+=18;p.push("LP allocation +18")}if(/billion|\bbn\b/i.test(full)){v+=12;p.push("Large scale +12")}if(["ABF","SRT","GP Stakes","Secondaries"].includes(st)){v+=9;p.push("Specialized strategy +9")}if(reg==="Korea"){v+=15;p.push("Korea relevance +15")}if(/co-invest/i.test(full)){v+=7;p.push("Co-investment +7")}return{v:Math.min(v,98),p}}
+function score(full,ev,st,reg){let p=[],v=48;if(["Final Close","First Close","Fundraising","Fund Launch"].includes(ev)){v+=20;p.push("Fundraising signal")}if(ev==="LP Commitment"){v+=19;p.push("LP allocation signal")}if(/billion|\bbn\b/i.test(full)){v+=12;p.push("Large disclosed scale")}if(["ABF","SRT","GP Stakes","Secondaries"].includes(st)){v+=10;p.push("Specialized strategy")}if(reg==="Korea"){v+=15;p.push("Korea relevance")}if(/co-invest/i.test(full)){v+=7;p.push("Co-investment angle")}return{v:Math.min(v,98),p}}
 const LP={"국민연금":[22,18,15,12,7],"KIC":[20,15,14,14,10],"우정사업본부":[12,10,11,18,15],"KB금융":[9,8,11,15,16],"NH금융":[8,8,10,15,14],"보험사":[8,15,7,18,13]};
-function lpfit(st,ev,reg,full){return Object.entries(LP).map(([n,p])=>{let v=46+(reg==="Korea"?6:0)+(["Final Close","First Close","Fundraising","Fund Launch"].includes(ev)?5:0)+(/billion|\bbn\b/i.test(full)?p[0]:0);if(st==="Infrastructure")v+=p[1];if(["Private Equity","GP Stakes","Secondaries"].includes(st))v+=p[2];if(["Private Credit","CLO"].includes(st))v+=p[3];if(["ABF","SRT"].includes(st))v+=p[4];return{name:n,score:Math.min(v,96)}}).sort((a,b)=>b.score-a.score)}
-function summary(title,desc,ev,st,reg){const c=strip(desc).replace(title,"").trim(),first=c?c.split(/(?<=[.!?])\s+/)[0].slice(0,155):`${title} 관련 시장 업데이트입니다.`;return[`${ev} 이벤트이며 주요 전략은 ${st}입니다.`,first,`${reg} 시장에서 자금모집·배치 또는 LP 접근 가능성을 확인할 필요가 있습니다.`]}
-function action(x){if(x.reg==="Korea"&&x.score>=80)return"국내 LP Coverage 담당자에게 우선 공유";if(["Final Close","First Close","Fundraising","Fund Launch"].includes(x.ev)&&x.score>=82)return"GP에 최신 IM·한국 마케팅 계획 확인";if(x.ev==="LP Commitment")return"유사 전략의 국내 LP 수요와 경쟁 상황 점검";if(["ABF","SRT","GP Stakes"].includes(x.st))return"전략 전문성과 국내 독점 가능성 검토";return x.score>=82?"내부 브리핑 후 GP 접촉 여부 결정":"Watchlist 저장 후 후속 뉴스 확인"}
-function normalize(x){const title=strip(x.title),desc=strip(x.description),full=`${title} ${desc}`,st=strategy(full),ev=eventType(full),reg=region(full),sc=score(full,ev,st,reg),lps=lpfit(st,ev,reg,full),id=btoa(unescape(encodeURIComponent((x.link||title).slice(0,180)))).replace(/=/g,"").slice(0,60);const obj={id,title,url:x.link,source:strip(x.source)||"Google News",date:new Date(x.pubDate||Date.now()),desc,st,ev,reg,score:sc.v,reasons:sc.p,lps,gp:extractGP(title),fund:extractFund(title),amount:amount(full),summary:summary(title,desc,ev,st,reg)};obj.action=action(obj);return obj}
-function persist(){localStorage.setItem("ab-final-read",JSON.stringify([...readSet]));localStorage.setItem("ab-final-saved",JSON.stringify([...savedSet]))}
-function current(){let a=S.all.filter(x=>{const q=S.query.toLowerCase(),hit=!q||`${x.title} ${x.gp} ${x.fund} ${x.st} ${x.ev} ${x.reg}`.toLowerCase().includes(q);const tab=S.tab==="전체"||x.st===S.tab||x.ev===S.tab||x.reg===S.tab;const view=S.view==="all"||(S.view==="unread"&&!readSet.has(x.id))||(S.view==="saved"&&savedSet.has(x.id))||(S.view==="high"&&x.score>=85);return hit&&tab&&view});a.sort((a,b)=>S.sort==="latest"?b.date-a.date:S.sort==="lpfit"?b.lps[0].score-a.lps[0].score:b.score-a.score);return a}
-function card(x){const saved=savedSet.has(x.id),read=readSet.has(x.id);return`<article class="card ${read?"read":""}" data-id="${x.id}"><div class="top"><div class="main"><div class="tags"><span class="tag">${esc(x.st)}</span><span class="tag ev">${esc(x.ev)}</span><span class="tag reg">${esc(x.reg)}</span>${x.score>=85?'<span class="tag high">HIGH</span>':""}</div><h2 class="title">${esc(x.title)}</h2><div class="meta">${esc(x.source)} · ${x.date.toLocaleString("ko-KR",{month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"})}</div></div><div class="score"><div><b>${x.score}</b><small>Importance</small></div></div></div><div class="details"><div class="box"><h4>Fund Intelligence</h4><div class="kv"><b>GP</b><span>${esc(x.gp)}</span><b>Fund</b><span>${esc(x.fund)}</span><b>Strategy</b><span>${esc(x.st)}</span><b>Status</b><span>${esc(x.ev)}</span><b>Size</b><span>${esc(x.amount)}</span></div></div><div class="box"><h4>3-Line Intelligence</h4><ul>${x.summary.map(s=>`<li>${esc(s)}</li>`).join("")}</ul></div><div class="box"><h4>한국 LP Match</h4><div class="lp-list">${x.lps.slice(0,4).map(l=>`<div class="lp-row"><b>${l.name}</b><div class="meter"><i style="width:${l.score}%"></i></div><span>${l.score}</span></div>`).join("")}</div></div><div class="box"><h4>Recommended Action</h4><p><b>${esc(x.action)}</b></p><p style="margin-top:8px;color:#6d778d">${esc(x.reasons.join(" · ")||"General market signal")}</p></div></div><div class="actions"><button class="primary open">원문 보기</button><button class="save">${saved?"★ Watchlist":"☆ Watchlist"}</button><button class="mark">${read?"미열람":"읽음 처리"}</button><button class="share">공유</button></div></article>`}
-function render(){const a=current();document.querySelector("#feed").innerHTML=a.length?a.map(card).join(""):'<div class="empty">조건에 맞는 뉴스가 없습니다.</div>';document.querySelector("#countText").textContent=`${a.length}건`;document.querySelector("#mTotal").textContent=S.all.length;document.querySelector("#mHigh").textContent=S.all.filter(x=>x.score>=85).length;document.querySelector("#mFund").textContent=S.all.filter(x=>["Final Close","First Close","Fundraising","Fund Launch"].includes(x.ev)).length;document.querySelector("#mSaved").textContent=savedSet.size;document.querySelectorAll(".card").forEach(el=>{const x=S.all.find(z=>z.id===el.dataset.id);el.querySelector(".open").onclick=()=>{readSet.add(x.id);persist();window.open(x.url,"_blank");render()};el.querySelector(".save").onclick=()=>{savedSet.has(x.id)?savedSet.delete(x.id):savedSet.add(x.id);persist();render()};el.querySelector(".mark").onclick=()=>{readSet.has(x.id)?readSet.delete(x.id):readSet.add(x.id);persist();render()};el.querySelector(".share").onclick=async()=>{const text=`${x.title}\n${x.summary.join("\n")}\n${x.url}`;if(navigator.share)await navigator.share({title:x.title,text,url:x.url});else{await navigator.clipboard.writeText(text);alert("복사했습니다.")}}});renderSide()}
+function lpfit(st,ev,reg,full){return Object.entries(LP).map(([n,p])=>{let v=43+(reg==="Korea"?6:0)+(["Final Close","First Close","Fundraising","Fund Launch"].includes(ev)?5:0)+(/billion|\bbn\b/i.test(full)?p[0]:0);if(st==="Infrastructure")v+=p[1];if(["Private Equity","GP Stakes","Secondaries"].includes(st))v+=p[2];if(["Private Credit","CLO"].includes(st))v+=p[3];if(["ABF","SRT"].includes(st))v+=p[4];return{name:n,score:Math.min(v,96)}}).sort((a,b)=>b.score-a.score)}
+function intelligence(x){
+ const amt=x.amount==="미공개"?"공개된 펀드 규모는 확인되지 않았습니다.":`${x.amount} 규모가 언급돼 자금모집의 실질성과 시장 인지도를 가늠할 수 있습니다.`;
+ const eventMap={
+  "Final Close":`최종 클로징 완료 기사로, 추가 신규 약정보다는 후속 전략·공동투자·차기 빈티지 관계 구축 관점에서 접근해야 합니다.`,
+  "First Close":`첫 클로징 달성 기사로, 잔여 모집 구간에서 한국 LP 마케팅 가능성과 추가 클로징 일정을 확인할 가치가 있습니다.`,
+  "Fundraising":`현재 자금모집 단계로 판단되며, 목표 규모·클로징 일정·한국 배정 가능 용량을 우선 확인해야 합니다.`,
+  "Fund Launch":`신규 전략 또는 후속 빈티지 출시 신호로, 트랙레코드와 기존 펀드 대비 차별점을 조기에 검토할 필요가 있습니다.`,
+  "LP Commitment":`기관투자자의 실제 약정 또는 배분 변화로, 해당 전략의 시장 수요와 유사 LP의 검토 가능성을 보여주는 신호입니다.`,
+  "Transaction":`개별 투자·인수 거래 기사로, 펀드레이징보다는 운용 역량·섹터 선호·딜 파이프라인 확인에 의미가 있습니다.`,
+  "Market Update":`직접적인 펀드레이징 이벤트는 아니므로 즉시 세일즈 액션보다는 시장 동향 모니터링 성격이 강합니다.`
+ };
+ const stratMap={
+  "ABF":"담보 풀의 구성, 선순위 비중, 손실흡수 구조, 듀레이션과 유동성이 핵심 검토 포인트입니다.",
+  "SRT":"은행 원자산의 질, 규제자본 절감 구조, 손실 트랜치와 빈티지별 성과를 확인해야 합니다.",
+  "CLO":"대출자산의 신용도, 리셋·리파이낸싱 가능성, 트랜치별 리스크와 현금흐름을 구분해야 합니다.",
+  "Private Credit":"담보·선순위성, 스프레드 프리미엄, 만기구조와 손실률을 중심으로 봐야 합니다.",
+  "Infrastructure":"장기 현금흐름, 인플레이션 연동성, 규제·개발 리스크와 공동투자 기회가 중요합니다.",
+  "Real Estate":"지역·섹터 노출, 레버리지, 리파이낸싱 리스크와 밸류에이션 조정 여부가 핵심입니다.",
+  "Private Equity":"진입 멀티플, 가치창출 방식, 회수 환경과 기존 LP 재약정 비중을 확인해야 합니다.",
+  "Secondaries":"할인율, NAV 기준일, 포트폴리오 분산도와 잔여기간이 투자 매력도를 좌우합니다.",
+  "GP Stakes":"운용사 성장성, 수수료 수익의 질, 후속 펀드레이징과 거버넌스 구조가 중요합니다.",
+  "Private Markets":"기사 원문을 통해 실제 전략과 투자대상을 추가 확인해야 합니다."
+ };
+ return[
+  `${x.gp} 관련 ${x.ev} 신호로 분류되며, 주요 전략은 ${x.st}, 지역은 ${x.reg}입니다.`,
+  `${eventMap[x.ev]} ${amt}`,
+  `${stratMap[x.st]} 한국 LP 관점에서는 ${x.lps[0].name}과 ${x.lps[1].name}의 전략 적합성을 우선 검토할 수 있습니다.`
+ ]
+}
+function recommendedActions(x){
+ const a=[];
+ if(x.ev==="Fundraising"||x.ev==="First Close"){
+  a.push(["GP 확인",`목표 규모, 현재 모집액, 다음 클로징 일정, 한국 LP 배정 가능 용량을 확인`]);
+  a.push(["자료 요청",`최신 IM·DDQ·트랙레코드·주요 투자 파이프라인 확보`]);
+  a.push(["LP 매칭",`${x.lps[0].name} 및 ${x.lps[1].name} Coverage 담당자와 초기 적합성 검토`]);
+ }else if(x.ev==="Final Close"){
+  a.push(["관계 유지",`차기 빈티지 예상 시점과 한국 LP 참여 여부를 GP에 확인`]);
+  a.push(["후속 기회",`Co-investment, SMA, 후속 펀드 또는 별도 전략 기회 점검`]);
+  a.push(["실적 추적",`이번 펀드의 기존 LP 재약정 비중과 초기 배치 속도를 모니터링`]);
+ }else if(x.ev==="LP Commitment"){
+  a.push(["벤치마킹",`약정 기관의 전략·규모·선정 배경을 확인해 국내 LP 수요와 비교`]);
+  a.push(["경쟁 점검",`동일 전략을 검토 중인 한국 LP 및 유사 GP 파이프라인 확인`]);
+  a.push(["내부 공유",`관련 Coverage 담당자에게 시장 수요 신호로 전달`]);
+ }else if(x.ev==="Fund Launch"){
+  a.push(["초기 접촉",`한국 마케팅 계획과 독점·서브에이전트 가능성을 조기에 확인`]);
+  a.push(["차별성 검증",`이전 빈티지 대비 전략·수익률·수수료·투자지역 변화 확인`]);
+  a.push(["Watchlist",`First Close 전까지 주요 앵커 LP와 자금모집 진행 상황 추적`]);
+ }else if(x.ev==="Transaction"){
+  a.push(["운용역량 확인",`해당 거래가 펀드 전략 및 기존 트랙레코드와 어떻게 연결되는지 검토`]);
+  a.push(["파이프라인 점검",`유사 거래의 추가 배치 가능성과 포트폴리오 집중도를 확인`]);
+  a.push(["세일즈 판단",`직접적인 펀드레이징이 없으면 즉시 LP 공유보다 Watchlist 우선`]);
+ }else{
+  a.push(["모니터링",`직접적인 펀드레이징 이벤트가 확인될 때까지 Watchlist에 보관`]);
+  a.push(["원문 확인",`기사 제목만으로 GP·Fund·규모가 불명확하면 원문에서 사실관계 검증`]);
+  a.push(["공유 기준",`한국 LP, 클로징, 신규 전략 또는 대형 규모가 확인될 때만 내부 공유`]);
+ }
+ if(x.reg==="Korea")a.unshift(["국내 우선",`한국 관련 기사이므로 관련 LP Coverage 담당자에게 우선 전달`]);
+ return a.slice(0,3)
+}
+function aliases(q){
+ const map={
+  "fundraising":["fundraising","fund raise","raising","자금모집","펀드레이징","모집"],
+  "final close":["final close","final closing","최종클로징","최종 클로징","최종종결"],
+  "first close":["first close","first closing","첫클로징","1차클로징","초기클로징"],
+  "lp commitment":["lp commitment","commitment","allocation","약정","출자","배분"],
+  "korea":["korea","korean","한국","국내"],
+  "europe":["europe","유럽"],"asia":["asia","아시아"],"north america":["north america","usa","us","미국","북미"],
+  "private credit":["private credit","private debt","direct lending","사모대출","다이렉트렌딩"],
+  "private equity":["private equity","buyout","pe","사모펀드"],
+  "infrastructure":["infrastructure","infra","인프라"],
+  "real estate":["real estate","property","부동산"],
+  "secondaries":["secondaries","secondary","세컨더리"],
+  "gp stakes":["gp stakes","gp stake","운용사지분"],
+  "abf":["abf","asset backed finance","자산담보금융"],
+  "srt":["srt","significant risk transfer"],
+  "clo":["clo","collateralized loan obligation"],
+  "국민연금":["국민연금","nps","national pension service"],"우정사업본부":["우정사업본부","korea post"],"kic":["kic","한국투자공사"]
+ };
+ const n=norm(q);let out=[n];
+ for(const [k,v] of Object.entries(map))if(norm(k)===n||v.some(x=>norm(x)===n))out.push(...v.map(norm));
+ return [...new Set(out)]
+}
+function searchable(x){return norm([x.title,x.desc,x.gp,x.fund,x.st,x.ev,x.reg,x.source,...x.lps.map(l=>l.name),...x.intelligence,...x.actions.flat()].join(" "))}
+function normalizeItem(x){
+ const rawTitle=strip(x.title), title=titleClean(rawTitle), desc=strip(x.description), full=`${title} ${desc}`, st=strategy(full), ev=eventType(full), reg=region(full), sc=score(full,ev,st,reg), lps=lpfit(st,ev,reg,full);
+ const id=btoa(unescape(encodeURIComponent((x.link||title).slice(0,180)))).replace(/=/g,"").slice(0,60);
+ const obj={id,title,url:x.link,source:sourceClean(rawTitle,strip(x.source)||"Google News"),date:new Date(x.pubDate||Date.now()),desc,st,ev,reg,score:sc.v,reasons:sc.p,lps,gp:extractGP(rawTitle),fund:extractFund(rawTitle),amount:amount(full)};
+ obj.intelligence=intelligence(obj); obj.actions=recommendedActions(obj); obj.searchText=searchable(obj); return obj
+}
+const TAB_RULES={
+ "전체":x=>true,
+ "Fundraising":x=>["Fundraising","First Close","Fund Launch"].includes(x.ev),
+ "Final Close":x=>x.ev==="Final Close",
+ "LP Commitment":x=>x.ev==="LP Commitment",
+ "Korea":x=>x.reg==="Korea"
+};
+function persist(){localStorage.setItem("ab-fixed-read",JSON.stringify([...readSet]));localStorage.setItem("ab-fixed-saved",JSON.stringify([...savedSet]))}
+function tabMatch(x){if(TAB_RULES[S.tab])return TAB_RULES[S.tab](x);return x.st===S.tab||x.ev===S.tab||x.reg===S.tab}
+function queryMatch(x){if(!S.query.trim())return true;const terms=S.query.trim().split(/\s+/).flatMap(aliases);return terms.every(t=>x.searchText.includes(t))}
+function current(){
+ let a=S.all.filter(x=>{
+  const view=S.view==="all"||(S.view==="unread"&&!readSet.has(x.id))||(S.view==="saved"&&savedSet.has(x.id))||(S.view==="high"&&x.score>=85);
+  return tabMatch(x)&&queryMatch(x)&&view
+ });
+ a.sort((a,b)=>S.sort==="latest"?b.date-a.date:S.sort==="lpfit"?b.lps[0].score-a.lps[0].score:b.score-a.score);return a
+}
+function card(x){const saved=savedSet.has(x.id),read=readSet.has(x.id);return`<article class="card ${read?"read":""}" data-id="${x.id}">
+<div class="top"><div class="main"><div class="tags"><span class="tag">${esc(x.st)}</span><span class="tag ev">${esc(x.ev)}</span><span class="tag reg">${esc(x.reg)}</span>${x.score>=85?'<span class="tag high">HIGH</span>':""}</div><h2 class="title">${esc(x.title)}</h2><div class="meta">${esc(x.source)} · ${x.date.toLocaleString("ko-KR",{month:"short",day:"numeric",hour:"2-digit",minute:"2-digit"})}</div></div><div class="score"><div><b>${x.score}</b><small>Importance</small></div></div></div>
+<div class="details">
+<div class="box"><h4>Fund Intelligence</h4><div class="kv"><b>GP</b><span>${esc(x.gp)}</span><b>Fund</b><span>${esc(x.fund)}</span><b>Strategy</b><span>${esc(x.st)}</span><b>Event</b><span>${esc(x.ev)}</span><b>Region</b><span>${esc(x.reg)}</span><b>Size</b><span>${esc(x.amount)}</span></div></div>
+<div class="box"><h4>3-Line Intelligence</h4><ul>${x.intelligence.map(s=>`<li>${esc(s)}</li>`).join("")}</ul></div>
+<div class="box"><h4>한국 LP Match</h4><div class="lp-list">${x.lps.slice(0,4).map(l=>`<div class="lp-row"><b>${l.name}</b><div class="meter"><i style="width:${l.score}%"></i></div><span>${l.score}</span></div>`).join("")}</div></div>
+<div class="box"><h4>Recommended Action</h4><div class="action-list">${x.actions.map(a=>`<div class="action-item"><b>${esc(a[0])}</b> · ${esc(a[1])}</div>`).join("")}</div></div>
+</div>
+<div class="actions"><button class="primary open">원문 보기</button><button class="save">${saved?"★ Watchlist":"☆ Watchlist"}</button><button class="mark">${read?"미열람":"읽음 처리"}</button><button class="share">공유</button></div></article>`}
+function render(){
+ const a=current();document.querySelector("#feed").innerHTML=a.length?a.map(card).join(""):'<div class="empty">조건에 맞는 뉴스가 없습니다.<br><small>검색어를 줄이거나 다른 탭을 선택해보세요.</small></div>';
+ document.querySelector("#countText").textContent=`${a.length}건`;
+ document.querySelector("#mTotal").textContent=S.all.length;document.querySelector("#mHigh").textContent=S.all.filter(x=>x.score>=85).length;
+ document.querySelector("#mFund").textContent=S.all.filter(x=>["Fundraising","First Close","Final Close","Fund Launch"].includes(x.ev)).length;document.querySelector("#mSaved").textContent=savedSet.size;
+ document.querySelectorAll(".card").forEach(el=>{const x=S.all.find(z=>z.id===el.dataset.id);
+  el.querySelector(".open").onclick=()=>{readSet.add(x.id);persist();window.open(x.url,"_blank");render()};
+  el.querySelector(".save").onclick=()=>{savedSet.has(x.id)?savedSet.delete(x.id):savedSet.add(x.id);persist();render()};
+  el.querySelector(".mark").onclick=()=>{readSet.has(x.id)?readSet.delete(x.id):readSet.add(x.id);persist();render()};
+  el.querySelector(".share").onclick=async()=>{const text=`${x.title}\n\n${x.intelligence.join("\n")}\n\nRecommended Action\n${x.actions.map(a=>`- ${a[0]}: ${a[1]}`).join("\n")}\n${x.url}`;if(navigator.share)await navigator.share({title:x.title,text,url:x.url});else{await navigator.clipboard.writeText(text);alert("복사했습니다.")}}
+ });renderSide()
+}
 function counts(k){const m={};S.all.forEach(x=>m[x[k]]=(m[x[k]]||0)+1);return Object.entries(m).sort((a,b)=>b[1]-a[1])}
-function renderSide(){document.querySelector("#events").innerHTML=counts("ev").slice(0,7).map(([k,v])=>`<div class="side-row"><span>${esc(k)}</span><b>${v}</b></div>`).join("");document.querySelector("#strategies").innerHTML=counts("st").slice(0,7).map(([k,v])=>`<div class="side-row"><span>${esc(k)}</span><b>${v}</b></div>`).join("");const radar={};S.all.forEach(x=>x.lps.slice(0,2).forEach(l=>radar[l.name]=(radar[l.name]||0)+1));document.querySelector("#radar").innerHTML=Object.entries(radar).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([k,v])=>`<div class="radar-item"><b>${k}</b><span>${v}건 추천</span></div>`).join("")}
-function renderTabs(){const vals=["전체","Korea","Fundraising","Final Close","LP Commitment",...new Set(S.all.map(x=>x.st))];document.querySelector("#tabs").innerHTML=[...new Set(vals)].map(v=>`<button class="tab ${v===S.tab?"active":""}" data-v="${esc(v)}">${esc(v)}</button>`).join("");document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S.tab=b.dataset.v;renderTabs();render()})}
-async function load(){const btn=document.querySelector("#refresh"),prog=document.querySelector("#progress"),bar=document.querySelector("#progressBar"),txt=document.querySelector("#progressText"),notice=document.querySelector("#notice");btn.disabled=true;btn.textContent="수집 중";prog.classList.add("show");notice.classList.remove("show");let raw=[];for(let i=0;i<QUERIES.length;i++){txt.textContent=`${i+1}/${QUERIES.length} 뉴스 소스 확인 중`;bar.style.width=`${Math.round(i/QUERIES.length*100)}%`;try{raw.push(...await getFeed(QUERIES[i]))}catch(e){}await sleep(100)}bar.style.width="100%";try{const m=new Map();raw.map(normalize).forEach(x=>{const k=x.title.toLowerCase().replace(/[^a-z0-9가-힣]/g,"").slice(0,100);if(k&&!m.has(k))m.set(k,x)});S.all=[...m.values()].filter(x=>x.title).slice(0,100);if(!S.all.length)throw 0;localStorage.setItem("ab-final-cache",JSON.stringify(S.all.map(x=>({...x,date:x.date.toISOString()}))));document.querySelector("#status").textContent=`Live · ${new Date().toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit"})}`}catch(e){const c=JSON.parse(localStorage.getItem("ab-final-cache")||"[]");S.all=c.map(x=>({...x,date:new Date(x.date)}));notice.textContent=S.all.length?"실시간 수집 실패로 마지막 성공 데이터를 표시합니다.":"외부 RSS 연결이 차단되어 뉴스를 불러오지 못했습니다.";notice.classList.add("show");document.querySelector("#status").textContent=S.all.length?"Cached":"연결 실패"}renderTabs();render();setTimeout(()=>prog.classList.remove("show"),700);btn.disabled=false;btn.textContent="↻ Refresh"}
-function exportCsv(){const rows=[["Title","GP","Fund","Source","Date","Strategy","Event","Region","Importance","Top LP","LP Fit","Action","URL"],...current().map(x=>[x.title,x.gp,x.fund,x.source,x.date.toISOString(),x.st,x.ev,x.reg,x.score,x.lps[0].name,x.lps[0].score,x.action,x.url])];const csv=rows.map(r=>r.map(v=>`"${String(v||"").replace(/"/g,'""')}"`).join(",")).join("\n"),blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`AltBrief_${new Date().toISOString().slice(0,10)}.csv`;a.click();URL.revokeObjectURL(a.href)}
-document.querySelector("#search").oninput=e=>{S.query=e.target.value;render()};document.querySelector("#sort").onchange=e=>{S.sort=e.target.value;render()};document.querySelector("#view").onchange=e=>{S.view=e.target.value;render()};document.querySelector("#refresh").onclick=load;document.querySelector("#export").onclick=exportCsv;if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});load();
+function renderSide(){
+ document.querySelector("#events").innerHTML=counts("ev").slice(0,8).map(([k,v])=>`<div class="side-row"><span>${esc(k)}</span><b>${v}</b></div>`).join("");
+ document.querySelector("#strategies").innerHTML=counts("st").slice(0,8).map(([k,v])=>`<div class="side-row"><span>${esc(k)}</span><b>${v}</b></div>`).join("");
+ const radar={};S.all.forEach(x=>x.lps.slice(0,2).forEach(l=>radar[l.name]=(radar[l.name]||0)+1));document.querySelector("#radar").innerHTML=Object.entries(radar).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([k,v])=>`<div class="radar-item"><b>${k}</b><span>${v}건 추천</span></div>`).join("")
+}
+function renderTabs(){
+ const fixed=["전체","Fundraising","Final Close","LP Commitment","Korea"], vals=[...fixed,...new Set(S.all.map(x=>x.st))];
+ document.querySelector("#tabs").innerHTML=[...new Set(vals)].map(v=>`<button class="tab ${v===S.tab?"active":""}" data-v="${esc(v)}">${esc(v)}</button>`).join("");
+ document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S.tab=b.dataset.v;renderTabs();render()})
+}
+async function load(){
+ const btn=document.querySelector("#refresh"),prog=document.querySelector("#progress"),bar=document.querySelector("#progressBar"),txt=document.querySelector("#progressText"),notice=document.querySelector("#notice");
+ btn.disabled=true;btn.textContent="수집 중";prog.classList.add("show");notice.classList.remove("show");let raw=[];
+ for(let i=0;i<QUERIES.length;i++){txt.textContent=`${i+1}/${QUERIES.length} 뉴스 소스 확인 중`;bar.style.width=`${Math.round(i/QUERIES.length*100)}%`;try{raw.push(...await getFeed(QUERIES[i]))}catch(e){}await sleep(100)}
+ bar.style.width="100%";
+ try{
+  const m=new Map();raw.map(normalizeItem).forEach(x=>{const k=norm(x.title).slice(0,110);if(k&&!m.has(k))m.set(k,x)});
+  S.all=[...m.values()].filter(x=>x.title).slice(0,120);if(!S.all.length)throw 0;
+  localStorage.setItem("ab-fixed-cache",JSON.stringify(S.all.map(x=>({...x,date:x.date.toISOString()}))));
+  document.querySelector("#status").textContent=`Live · ${new Date().toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit"})}`;
+ }catch(e){
+  const c=JSON.parse(localStorage.getItem("ab-fixed-cache")||"[]");S.all=c.map(x=>({...x,date:new Date(x.date)}));
+  notice.textContent=S.all.length?"실시간 수집 실패로 마지막 성공 데이터를 표시합니다.":"외부 RSS 연결이 차단되어 뉴스를 불러오지 못했습니다.";notice.classList.add("show");document.querySelector("#status").textContent=S.all.length?"Cached":"연결 실패"
+ }
+ renderTabs();render();setTimeout(()=>prog.classList.remove("show"),700);btn.disabled=false;btn.textContent="↻ Refresh"
+}
+function exportCsv(){
+ const rows=[["Title","GP","Fund","Source","Date","Strategy","Event","Region","Importance","Top LP","LP Fit","Action 1","Action 2","Action 3","URL"],...current().map(x=>[x.title,x.gp,x.fund,x.source,x.date.toISOString(),x.st,x.ev,x.reg,x.score,x.lps[0].name,x.lps[0].score,...x.actions.map(a=>`${a[0]}: ${a[1]}`),x.url])];
+ const csv=rows.map(r=>r.map(v=>`"${String(v||"").replace(/"/g,'""')}"`).join(",")).join("\n"),blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`AltBrief_${new Date().toISOString().slice(0,10)}.csv`;a.click();URL.revokeObjectURL(a.href)
+}
+document.querySelector("#search").oninput=e=>{S.query=e.target.value;render()};document.querySelector("#sort").onchange=e=>{S.sort=e.target.value;render()};document.querySelector("#view").onchange=e=>{S.view=e.target.value;render()};document.querySelector("#refresh").onclick=load;document.querySelector("#export").onclick=exportCsv;
+if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});load();
 </script>
 </body></html>
