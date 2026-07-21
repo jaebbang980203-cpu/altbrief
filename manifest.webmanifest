@@ -1,10 +1,11 @@
 {
   "name": "AltBrief AI",
   "short_name": "AltBrief",
-  "start_url": "./live-v2.html",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#f4f6fa",
-  "theme_color": "#0b1538",
+  "background_color": "#07132f",
+  "theme_color": "#07132f",
   "icons": [
     {
       "src": "icon-192.png",
