@@ -1,22 +1,17 @@
 {
+  "updated_at": "2026-07-27T00:00:00Z",
+  "article_count": 1,
+  "collection_errors": [],
   "articles": [
     {
-      "id": "welcome-1",
-      "title": "AltBrief 자동 뉴스 수집을 준비하고 있습니다",
+      "id": "setup-check",
+      "title": "AltBrief 뉴스 수집을 시작합니다",
       "source": "AltBrief",
-      "published_at": "2026-07-21T00:00:00+00:00",
-      "category": "Private Credit",
+      "published_at": "2026-07-27T00:00:00Z",
+      "category": "안내",
       "region": "Global",
-      "event_type": "Market Update",
-      "summary": "GitHub 저장소 업로드와 Pages 설정 후 자동 수집 작업이 실행되면 실제 공개 RSS 기사로 교체됩니다.",
-      "implication": "첫 실행 후 Actions 화면에서 수집 성공 여부와 마지막 실행 시간을 확인하세요.",
-      "importance": 80,
-      "url": "#"
+      "summary": "업로드 후 GitHub Actions가 실행되면 이 안내 기사는 실제 대체투자 뉴스로 교체됩니다.",
+      "url": "https://news.google.com/"
     }
-  ],
-  "updated_at": "2026-07-21T00:00:00+00:00",
-  "live": false,
-  "mode": "initial-sample",
-  "source_count": 0,
-  "errors": []
+  ]
 }

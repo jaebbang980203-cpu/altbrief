@@ -59,9 +59,9 @@ async function loadNews({ force = false } = {}) {
   setLoading(true);
 
   try {
-    const cacheBust = force ? `?v=${Date.now()}` : "";
+    const cacheBust = `?v=${Date.now()}`;
     const response = await fetch(`./news.json${cacheBust}`, {
-      cache: force ? "no-store" : "default"
+      cache: "no-store"
     });
 
     if (!response.ok) {
@@ -483,7 +483,7 @@ document.addEventListener("keydown", (event) => {
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js").catch(console.error);
+    navigator.serviceWorker.register("./sw.js?v=6", { updateViaCache: "none" }).catch(console.error);
   });
 }
 

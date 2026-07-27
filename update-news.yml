@@ -4,6 +4,17 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "17 */3 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "app.js"
+      - "styles.css"
+      - "sw.js"
+      - "manifest.webmanifest"
+      - "update_news.py"
+      - ".github/workflows/update-news.yml"
 
 permissions:
   contents: write
@@ -11,7 +22,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "altbrief-pages"
+  group: altbrief-pages
   cancel-in-progress: false
 
 jobs:
@@ -40,7 +51,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add news.json
           if ! git diff --cached --quiet; then
-            git commit -m "chore: update AltBrief news"
+            git commit -m "chore: update AltBrief news [skip ci]"
             git push
           else
             echo "No news.json changes to commit."
@@ -51,18 +62,8 @@ jobs:
         run: |
           rm -rf dist
           mkdir -p dist
-
-          cp index.html app.js styles.css sw.js news.json dist/
+          cp index.html app.js styles.css sw.js manifest.webmanifest news.json dist/
           cp icon-192.png icon-512.png dist/
-
-          if [ -f manifest.webmanifest ]; then
-            cp manifest.webmanifest dist/
-          fi
-
-          if [ -f manifest.json ]; then
-            cp manifest.json dist/
-          fi
-
           touch dist/.nojekyll
 
       - name: Configure GitHub Pages
