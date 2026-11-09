@@ -1,4 +1,4 @@
-name: AltBrief - Refresh News and Deploy
+name: AltBrief - Auto Collect News
 
 on:
   workflow_dispatch:
@@ -10,75 +10,55 @@ on:
       - 'update_news.py'
       - 'sources.json'
       - 'requirements.txt'
-      - 'index.html'
-      - 'app.js'
-      - 'styles.css'
-      - 'sw.js'
-      - 'manifest.webmanifest'
       - '.github/workflows/update-news.yml'
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
-  group: altbrief-news-pages
+  group: altbrief-auto-collect
   cancel-in-progress: false
 
 jobs:
-  update-and-deploy:
+  collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    timeout-minutes: 20
     steps:
-      - name: Checkout
+      - name: Check out main branch
         uses: actions/checkout@v4
         with:
           persist-credentials: true
-      - name: Python 3.12
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install RSS dependencies
+      - name: Install libraries
         run: python -m pip install -r requirements.txt
-      - name: Collect latest news
+      - name: Collect Google News RSS
         run: python update_news.py
-      - name: Print freshness diagnostics
+      - name: Verify updated data
+        shell: bash
         run: |
           python - <<'PY'
           import json
-          d=json.load(open('news.json', encoding='utf-8'))
-          print('updated_at=', d.get('updated_at'))
-          print('status=', d.get('status'))
-          print('feed_successes=', d.get('feed_successes'))
-          print('feed_failures=', d.get('feed_failures'))
-          print('article_count=', len(d.get('articles', [])))
+          data = json.load(open('news.json', encoding='utf-8'))
+          articles = data.get('articles', [])
+          print('Updated at:', data.get('updated_at'))
+          print('Success feeds:', data.get('feed_successes'))
+          print('Failed feeds:', data.get('feed_failures'))
+          print('Article count:', len(articles))
+          assert len(articles) > 0, 'No articles found'
+          assert any(a.get('id') != 'setup-check' for a in articles), 'Sample news was not replaced'
           PY
-      - name: Commit latest dataset
+      - name: Commit news.json to main
+        shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add news.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'chore: refresh news [skip ci]'
-            git push
+          if git diff --cached --quiet; then
+            echo 'No changes to news.json'
           else
-            echo 'No dataset changes'
+            git commit -m 'chore: refresh AltBrief news'
+            git push
           fi
-      - name: Prepare pages payload
-        run: |
-          mkdir -p dist
-          cp index.html app.js styles.css sw.js manifest.webmanifest news.json dist/
-          touch dist/.nojekyll
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-      - name: Deploy Pages
-        id: deployment
-        uses: actions/deploy-pages@v4

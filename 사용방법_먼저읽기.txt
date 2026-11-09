@@ -1,0 +1,34 @@
+AltBrief 자동수집 복구 v2 - 기존 웹사이트 그대로 유지
+========================================================
+
+중요: 대상 저장소는 altbrief-new가 아니라 아래 altbrief입니다.
+https://github.com/jaebbang980203-cpu/altbrief
+
+이 ZIP은 사이트 디자인, 기존 페이지 파일을 일절 바꾸지 않습니다.
+뉴스 수집 프로그램만 GitHub Actions에 다시 등록합니다.
+
+[업로드 절차]
+1. 이 ZIP 압축 해제
+2. GitHub의 altbrief 저장소 -> Code -> Add file -> Upload files
+3. 압축 해제한 폴더 안의 다음 항목을 업로드
+   - update_news.py
+   - sources.json
+   - requirements.txt
+   - .github 폴더 전체 (중요! 하위 경로 유지)
+4. Commit changes -> Commit directly to main
+5. Code 탭에서 .github/workflows/update-news.yml 경로가 생겼는지 확인
+   (이름이 update-news.yml 파일만 저장소 루트에 있으면 작동하지 않습니다)
+6. Settings -> Actions -> General -> Workflow permissions
+   -> Read and write permissions -> Save
+7. Actions -> AltBrief - Auto Collect News -> Run workflow -> main
+8. 뉴스 수집이 성공하면 news.json이 자동 갱신되고 기존 Pages 배포가 자동으로 이어집니다.
+
+[중요]
+- Settings -> Pages 설정은 이번 패치에서는 변경하지 않습니다.
+- 작업 내역에 pages build and deployment만 보이면 자동수집이 등록되지 않은 것입니다.
+  반드시 AltBrief - Auto Collect News 워크플로가 보여야 합니다.
+- GitHub 예약 실행은 3시간 주기를 목표로 하지만 지연/누락될 수 있습니다.
+- 압축파일 자체를 업로드하지 마세요.
+- 기존 저장소의 루트에 있던 update-news.yml 등의 잘못된 위치의 .yml은 동작하지 않습니다.
+- 뉴스 요약은 RSS 공개 설명 기반으로, AI 원문 분석 기능은 포함되어 있지 않습니다.
+- 작업은 실제 GitHub 서버에서 아직 검증되지 않았으므로 오류가 생기면 Actions 로그 확인이 필요합니다.
